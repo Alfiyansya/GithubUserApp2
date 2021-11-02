@@ -5,6 +5,18 @@ Before I explain how this application works and submission checklist, I want to 
 2. if an app user clicks on one of the Github users from the list, the details of the Github user that was clicked will be displayed
 3. user can search the username of any github user you want, and then data will be displayed in screen
 4. if an app user clicks on any of the Github users from the list of username previously searched for, the details of the clicked Github users will be displayed
+### Demo Apps
+<p align="center">
+    <img src="demo apps/main.gif"
+        alt="Demo Apps1"    
+        style="margin-right: 8px;"    
+        width="230" />
+    <img src="demo apps/search.gif"
+        alt="Demo Apps2"    
+        style="margin-right: 8px;"    
+        width="230" />
+</p>
+
 ### Submission CheckList
 - Mempertahankan fitur pada Submission 1.
 - Pencarian User menggunakan data dari API berjalan dengan baik.
