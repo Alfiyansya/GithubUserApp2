@@ -36,7 +36,7 @@ class FollowsViewModel(username: String) : ViewModel() {
     private suspend fun getListFollowers(username: String) {
         coroutineScope.launch {
             _isLoading.value = true
-            val result = ApiConfig.getApiService().getListFollowing(username)
+            val result = ApiConfig.getApiService().getListFollowers(username)
             try{
                 _isLoading.value = false
                 _followers.postValue(result)
@@ -51,7 +51,7 @@ class FollowsViewModel(username: String) : ViewModel() {
     private suspend fun getListFollowing(username: String) {
         coroutineScope.launch {
             _isLoading.value = true
-            val result = ApiConfig.getApiService().getListFollowers(username)
+            val result = ApiConfig.getApiService().getListFollowing(username)
             try{
                 _isLoading.value = false
                 _following.postValue(result)
