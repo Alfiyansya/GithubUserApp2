@@ -23,7 +23,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
         debug {
-            buildConfigField "String", "API_TOKEN", //PUT YOUR API KEY IN HERE
+            buildConfigField "String", "API_TOKEN","\"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\""
             buildConfigField("String", "BASE_URL", '"https://api.github.com/"')
         }
     }
@@ -43,7 +43,6 @@ dependencies {
     //Coroutines
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.2'
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.0'
-    implementation 'com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:0.9.2'
 
     //networking
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'

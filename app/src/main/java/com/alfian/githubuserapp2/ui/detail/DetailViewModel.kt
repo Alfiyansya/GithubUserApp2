@@ -33,9 +33,8 @@ class DetailViewModel(username: String) : ViewModel() {
     private suspend fun getDetailUser(username: String) {
         coroutineScope.launch {
             _isLoading.value = true
-            val getDetailUserDeferred = ApiConfig.getApiService().getDetailUserAsync(username)
+            val result = ApiConfig.getApiService().getDetailUserAsync(username)
             try {
-                val result = getDetailUserDeferred.await()
                 _isLoading.value = false
                 _detailUser.postValue(result)
             } catch (e: Exception) {
@@ -49,5 +48,9 @@ class DetailViewModel(username: String) : ViewModel() {
 
     companion object {
         private const val TAG = "DetailViewModel"
+    }
+    override fun onCleared() {
+        super.onCleared()
+        viewModelJob.cancel()
     }
 }

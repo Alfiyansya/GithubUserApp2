@@ -1,7 +1,6 @@
 package com.alfian.githubuserapp2.networking
 
 import com.alfian.githubuserapp2.BuildConfig
-import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -18,7 +17,6 @@ class ApiConfig {
             val retrofit = Retrofit.Builder()
                 .baseUrl(BuildConfig.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
-                .addCallAdapterFactory(CoroutineCallAdapterFactory())
                 .client(client)
                 .build()
             return retrofit.create(ApiService::class.java)

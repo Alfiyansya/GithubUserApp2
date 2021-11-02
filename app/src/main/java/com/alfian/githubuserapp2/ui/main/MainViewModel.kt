@@ -8,7 +8,10 @@ import androidx.lifecycle.viewModelScope
 import com.alfian.githubuserapp2.datasource.SearchResponse
 import com.alfian.githubuserapp2.datasource.UserResponse
 import com.alfian.githubuserapp2.networking.ApiConfig
-import kotlinx.coroutines.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -28,6 +31,7 @@ class MainViewModel : ViewModel() {
 
     init {
         viewModelScope.launch { getListUser() }
+        Log.i(TAG, "MainViewModel is Created")
     }
 
     private suspend fun getListUser() {
@@ -35,13 +39,12 @@ class MainViewModel : ViewModel() {
             _isLoading.value = true
             val getUserDeferred = ApiConfig.getApiService().getListUsersAsync()
             try {
-                val listResult = getUserDeferred.await()
                 _isLoading.value = false
-                _user.postValue(listResult)
+                _user.postValue(getUserDeferred)
             } catch (e: Exception) {
                 _isLoading.value = false
                 _isDataFailed.value = true
-                Log.e("UserRepo", "onFailure: ${e.message.toString()}")
+                Log.e(TAG, "onFailure: ${e.message.toString()}")
             }
         }
     }
