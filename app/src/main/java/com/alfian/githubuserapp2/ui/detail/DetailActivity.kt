@@ -164,6 +164,7 @@ class DetailActivity : AppCompatActivity() {
 
     private fun showFailedLoadData(isFailed: Boolean) {
         binding.detailFailedDataLoad.visibility = if (isFailed) View.VISIBLE else View.GONE
+        binding.tvFailed.visibility = if (isFailed) View.VISIBLE else View.GONE
     }
 
     companion object {

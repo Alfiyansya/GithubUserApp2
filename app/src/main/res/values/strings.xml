@@ -19,5 +19,6 @@
     <string name="tabs">tabs</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="search_hint">Cari Username Github</string>
+    <string name="no_internet">"Tidak ada koneksi internet"</string>
     <string name="text_failed_load">Gagal memuat data,silahkan coba lagi</string>
 </resources>

@@ -2,14 +2,13 @@ package com.alfian.githubuserapp2.ui.main
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
-import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.GridLayoutManager
+import com.alfian.githubuserapp2.R
 import com.alfian.githubuserapp2.adapter.OnItemClickCallback
 import com.alfian.githubuserapp2.adapter.UserAdapter
 import com.alfian.githubuserapp2.databinding.ActivityMainBinding
@@ -17,7 +16,7 @@ import com.alfian.githubuserapp2.datasource.UserResponse
 import com.alfian.githubuserapp2.networking.NetworkConnection
 import com.alfian.githubuserapp2.ui.detail.DetailActivity
 
-class MainActivity : AppCompatActivity(), Toolbar.OnMenuItemClickListener {
+class MainActivity : AppCompatActivity(){
 
     private lateinit var binding: ActivityMainBinding
 
@@ -37,7 +36,6 @@ class MainActivity : AppCompatActivity(), Toolbar.OnMenuItemClickListener {
     }
 
     private fun setUpSearchView() {
-        binding.toolbar.setOnMenuItemClickListener(this)
         with(binding) {
             searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
                 override fun onQueryTextSubmit(query: String): Boolean {
@@ -101,9 +99,8 @@ class MainActivity : AppCompatActivity(), Toolbar.OnMenuItemClickListener {
                         binding.rvMain.visibility = View.VISIBLE
                     }
                 }
-                Toast.makeText(this@MainActivity, "Tidak ada koneksi internet", Toast.LENGTH_LONG)
+                Toast.makeText(this@MainActivity, getString(R.string.no_internet), Toast.LENGTH_LONG)
                     .show()
-                showFailedLoadData(false)
             }
         })
     }
@@ -137,9 +134,5 @@ class MainActivity : AppCompatActivity(), Toolbar.OnMenuItemClickListener {
                 startActivity(intent)
             }
         })
-    }
-
-    override fun onMenuItemClick(item: MenuItem?): Boolean {
-        TODO("Not yet implemented")
     }
 }
